@@ -1,15 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>ToDoList</title>
   </head>
   <body>
-    <input type="date" name="date" /> <br /><br /><br />
-    <div>
-      <input type="text" name="text" id="Todo" placeholder="New Todo" />
-      <input type="button" name="button" id="Todo" value="입력" />
-    </div>
+    <header>
+      <h1>할일 관리 웹사이트</h1>
+    </header>
+
+    <main>
+      <h2>선택된 날짜</h2>
+      <p id="selected-date">날짜가 선택되지 않았습니다.</p>
+      <br />
+
+      <section id="task-list">
+        <h2>할일 목록</h2>
+        <ul id="tasks"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 할일 관리 웹사이트</p>
+    </footer>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const date = urlParams.get("date");
+
+      if (date) {
+        document.getElementById(
+          "selected-date"
+        ).textContent = `선택된 날짜: ${date}`;
+      } else {
+        document.getElementById("selected-date").textContent =
+          "날짜가 선택되지 않았습니다.";
+      }
+    </script>
   </body>
 </html>

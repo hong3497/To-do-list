@@ -3,13 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>ToDoList</title>
   </head>
   <body>
-    <input type="date" name="date" /> <br /><br /><br />
-    <div>
-      <input type="button" name="Scadules" id="funtion" value="Scadules" />
-      <input type="button" name="Details" id="funtion" value="Details" />
+    <h1>할일 관리 웹사이트</h1>
+
+    <input type="date" name="date" id="date" /> <br /><br /><br />
+    <div class="Details-section">
+      <button id="funtion" onclick="Details()">Details</button>
     </div>
+
+    <script>
+      function Details() {
+        const date = document.getElementById("date").value;
+        if (date) {
+          window.location.href = `Details.html?date=${date}`;
+        } else {
+          alert("날짜를 선택해주세요!");
+        }
+      }
+    </script>
   </body>
 </html>
